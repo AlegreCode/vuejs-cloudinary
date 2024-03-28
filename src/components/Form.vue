@@ -1,3 +1,10 @@
+<script setup>
+function handleFileChange(event) {
+  var file = event.target.files[0];
+  var url = URL.createObjectURL(file);
+  document.querySelector('img').src = url;
+};
+</script>
 <template>
     <form>
       <div class="form-group py-2 text-center">
