@@ -3,10 +3,25 @@ import { ref } from 'vue';
 
 const fileInput = ref(null);
 
-function handleSubmit(){
+async function handleSubmit() {
   const file = fileInput.value.files[0];
-  console.log("Archivo seleccionado: ", file);
+  const cloudname = "dezkmxexp";
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', 'images_vuejs');
+
+  try {
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudname}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+    const data = await response.json();
+    console.log("Archivo subido con éxito: ", data);
+  } catch (error) {
+    console.error("Error al subir el archivo: ", error);
+  }
 }
+
 
 function handleFileChange(event) {
   var file = event.target.files[0];
