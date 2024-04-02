@@ -1,0 +1,1 @@
+<img src="https://fakeimg.pl/600x450/" alt="visor" class="img-thumbnail mb-2 mx-auto" />
