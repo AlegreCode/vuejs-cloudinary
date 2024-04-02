@@ -13,7 +13,7 @@ import Viewer from './components/Viewer.vue';
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-6 text-center">
         <Viewer />
       </div>
     </div>
