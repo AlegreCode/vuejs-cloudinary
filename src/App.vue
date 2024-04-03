@@ -1,6 +1,9 @@
 <script setup>
+import { ref } from 'vue';
 import Form from './components/Form.vue';
 import Viewer from './components/Viewer.vue';
+
+const url_image = ref("https://fakeimg.pl/600x300/");
 </script>
 
 <template>
@@ -14,7 +17,7 @@ import Viewer from './components/Viewer.vue';
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 text-center">
-        <Viewer />
+        <Viewer :urlImage="url_image"/>
       </div>
     </div>
   </div>
