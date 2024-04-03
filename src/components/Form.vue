@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['getUrlImage']);
 
 const fileInput = ref(null);
 
@@ -17,6 +19,9 @@ async function handleSubmit() {
     });
     const data = await response.json();
     console.log("Archivo subido con éxito: ", data);
+    document.getElementById('preview').src = "https://fakeimg.pl/350x200/";
+    emit('getUrlImage', data.secure_url);
+
   } catch (error) {
     console.error("Error al subir el archivo: ", error);
   }
